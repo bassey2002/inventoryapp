@@ -1,4 +1,4 @@
-package ng.edu.binghamuni.inventory.sevices;
+package ng.edu.binghamuni.inventory.services;
 
 import ng.edu.binghamuni.inventory.domain.Drink;
 import ng.edu.binghamuni.inventory.repository.DrinkRepository;
@@ -8,60 +8,65 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-@Service
-public class DrinkServiceImpl implements DrinkService{
 
+@Service
+public abstract class DrinkServiceImpl implements DrinkService{
     @Autowired
     DrinkRepository drinkRepository;
     @Override
     public Drink saveDrink(Drink drink) {
-        return drinkRepository.save(Drink);
-
+        return drinkRepository.save(drink);
     }
+
 
     @Override
     public Drink getDrinkById(long id) {
-        Optional<Drink> drink = return drinkRepository.findById(id);
+        Optional<Drink> drink = drinkRepository.findById(id);
 
         Drink emptyDrink = null;
-        if (drink.isEmpty()){
+        if (drink.isPresent()){
             emptyDrink = drink.get();
             return emptyDrink;
-        }else {
-            throw new RuntimeException("Drink not found");
+        } else {
+            throw new RuntimeException("Drink Not Found");
         }
-
     }
 
     @Override
     public List<Drink> getAllDrink() {
+        return drinkRepository.findAll();
+    }
+
+    @Override
+    public Drink updateDrink(Drink drink) {
         return null;
     }
 
 
     @Override
-    public Drink updateDrink(Drink drink) {
-        Drink drink;
-        Optional<Drink>  optionalDrink = drinkRepository.findById(drink.getId());
+    public Drink updateDrinkById(Drink drink) {
+        Optional<Drink> optionalDrink = drinkRepository.findById(drink.getId());
 
         if (optionalDrink.isPresent()){
             Drink updateDrink = new Drink();
             updateDrink.setCapacity(drink.getCapacity());
             updateDrink.setColor(drink.getColor());
-            updateDrink.setCompany(drink.getCompany());
             updateDrink.setName(drink.getName());
             updateDrink.setType(drink.getType());
+            updateDrink.setCompany(drink.getCompany());
             updateDrink.setId(drink.getId());
-            updateDrink.setIngredientList(drink.getIngredientList());
+            updateDrink.setIngredients(drink.getIngredients());
 
             drinkRepository.save(updateDrink);
-        }else {
-            throw new RuntimeException("Drink does not exist")
+            return updateDrink;
+        } else{
+            throw new RuntimeException("Drink does not exist");
         }
+
     }
 
     @Override
-    public void deleteDrink(long id){
+    public void deleteDrinkById(long id) {
         drinkRepository.deleteById(id);
     }
 }
