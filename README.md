@@ -11,3 +11,11 @@ Java Application to manage drink inventory. Add, update and delete drink stock.
 ### Delete
 <img width="1120" alt="delete 1" src="https://github.com/bassey2002/inventoryapp/assets/133603280/b9467706-80db-470d-83d6-76d03e97fa8a">
 <img width="1120" alt="delete 2" src="https://github.com/bassey2002/inventoryapp/assets/133603280/c1927cf4-fbb6-4d02-aae7-d093e3a3f921">
+
+### Group Members
+- Bassey Emmanuel BHU/19/04/02//0005
+- Emma Leke Omotade Peace BHU/21/04/05/0058
+- Jack Bliss Tamunosaki BHU/21/04/05/0034
+- Chidebe Asher Oluebubechukwu BHU/21/04/05/0093 
+- Isaac Ishamli Patrick Bekeh Bhu /21/04/05/0095
+
