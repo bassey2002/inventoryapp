@@ -48,7 +48,7 @@ public class DrinkController {
             Drink drink = drinkService.getDrinkById(id);
             model.addAttribute("drink", drink);
             model.addAttribute("pageTitle", "Edit Drink Id:" + id);
-            return "showEditDrinkForm";
+            return "new_drink";
         } catch (Exception e) {
             return "redirect:/";
         }

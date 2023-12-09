@@ -7,13 +7,12 @@
 
 
 <body>
-
 <div class="m-2">
     <a th:href="@{/showNewDrinkForm}" class="btn btn-primary btn-sm mb-3">Add new drink</a>
 </div>
 
 <!--send a flash message-->
-<div th:if="${message}" th:class="'alert alert-' + ${color} + ' text-center'">
+<div th:if="${message}" class="alert alert-success text-center">
     [[${message}]]
 </div>
 
@@ -32,8 +31,10 @@
         <td th:text="${drink.company}"></td>
         <td th:text="${drink.type}"></td>
         <td>
-            <a class="h4 btn btn-primary mr-3" th:href="@{'/updateDrink/' + ${drink.id}}">Edit</a>
-            <a th:onclick="return confirm('are you sure you want to delete?')" class="h4 btn btn-danger" th:href="@{'/deleteDrink/' + ${drink.id}}">Delete</a>
+            <!-- Update the Edit button link -->
+            <a class="h4 btn btn-primary mr-3" th:href="@{'/showEditDrinkForm/' + ${drink.id}}">Edit</a>
+            <a th:onclick="return confirm('Are you sure you want to delete?')" class="h4 btn btn-danger"
+               th:href="@{'/deleteDrink/' + ${drink.id}}">Delete</a>
         </td>
     </tr>
     </tbody>

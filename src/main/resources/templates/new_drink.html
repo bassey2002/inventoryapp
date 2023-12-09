@@ -15,6 +15,7 @@
 <!-- add drink Form -->
 <form th:action="@{/saveDrink}" th:method="post" th:object="${drink}" class="container mt-3">
 
+    <input type="hidden" th:field="*{id}">
     <div class="border p-3">
         <div class="form-group row">
             <label th:for="DrinkName" class="col-sm-4 col-form-label required">Drink Name</label>
